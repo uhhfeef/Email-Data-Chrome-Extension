@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Gmail Interest Tracker",
+    "version": "1.0",
+    "description": "Tracks email interaction data in Gmail",
+    "permissions": ["storage", "downloads", "alarms"],
+    "host_permissions": ["https://mail.google.com/*"],
+    "action": {
+        "default_popup": "popup.html"
+      },
+    "content_scripts": [
+      {
+        "matches": ["https://mail.google.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    }
+}
